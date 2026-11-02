@@ -61,6 +61,55 @@
                     placeholder="Search by book title or author...">
             </div>
 
+<div class="add-book-container">
+    <button id="openBookForm" class="add-book-btn">
+        + Add New Book
+    </button>
+
+    <form id="bookForm" hidden>
+        <h2>Add a New Book</h2>
+
+        <input
+            type="text"
+            id="bookTitle"
+            placeholder="Book Title"
+            required
+        >
+
+        <input
+            type="text"
+            id="bookAuthor"
+            placeholder="Author Name"
+            required
+        >
+
+        <select id="bookCategory" required>
+            <option value="">Select Category</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Romance">Romance</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Science">Science</option>
+            <option value="Technology">Technology</option>
+        </select>
+
+        <input
+            type="url"
+            id="bookImage"
+            placeholder="Book Cover Image URL"
+            required
+        >
+
+        <button type="submit" class="borrow-btn">
+            Add Book
+        </button>
+
+        <button type="button" id="closeBookForm">
+            Cancel
+        </button>
+    </form>
+</div>
+
             <div class="book-grid" id="bookGrid">
 
                 <article class="book-card" data-category="Classics">
