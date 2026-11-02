@@ -1,0 +1,659 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* =====================================
+   1. ROOT VARIABLES
+===================================== */
+
+:root {
+    --bg: #101713;
+    --bg-secondary: #17221b;
+    --surface: #1d2a21;
+    --surface-hover: #26372a;
+
+    --green: #78936b;
+    --green-dark: #425d45;
+
+    --gold: #d4ad66;
+    --gold-hover: #e6c47e;
+
+    --brown: #35271f;
+    --text: #eee9df;
+    --text-muted: #aaa99d;
+
+    --border: #344237;
+
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'DM Sans', sans-serif;
+
+    --radius: 12px;
+    --transition: 0.3s ease;
+}
+
+/* =====================================
+   2. GLOBAL RESET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--bg);
+}
+
+/* =====================================
+   3. NAVIGATION BAR
+===================================== */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 8%;
+
+    background: rgba(16, 23, 19, 0.96);
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    font-family: var(--heading-font);
+    font-size: 29px;
+    font-weight: 700;
+
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: color var(--transition);
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.nav-button,
+.primary-button {
+    display: inline-block;
+
+    background: var(--gold);
+    color: #171710;
+
+    padding: 12px 24px;
+    border-radius: 7px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: all var(--transition);
+}
+
+.nav-button:hover,
+.primary-button:hover {
+    background: var(--gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px #d4ad6630;
+}
+
+/* =====================================
+   4. HERO SECTION
+===================================== */
+
+.hero {
+    min-height: 500px;
+
+    padding: 95px 10%;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            ellipse at 85% 50%,
+            #304b36 0%,
+            transparent 55%
+        ),
+        linear-gradient(
+            120deg,
+            #101713,
+            #19271d
+        );
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.eyebrow {
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: var(--heading-font);
+
+    font-size: clamp(43px, 6vw, 76px);
+    line-height: 1.12;
+
+    color: var(--text);
+
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-description {
+    color: var(--text-muted);
+
+    line-height: 1.9;
+    font-size: 16px;
+
+    max-width: 490px;
+    margin-bottom: 35px;
+}
+
+/* =====================================
+   5. SECTION HEADINGS
+===================================== */
+
+.categories,
+.books-section {
+    padding: 85px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-family: var(--heading-font);
+    font-size: clamp(30px, 4vw, 42px);
+
+    color: var(--text);
+    margin-bottom: 14px;
+}
+
+.section-heading > p:last-child {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* =====================================
+   6. CATEGORY BUTTONS
+===================================== */
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.category-btn {
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+    color: var(--text-muted);
+
+    padding: 11px 24px;
+    border-radius: 30px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: all var(--transition);
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: var(--gold);
+    color: #171710;
+
+    border-color: var(--gold);
+
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   7. BOOK SECTION
+===================================== */
+
+.books-section {
+    background: #131c16;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+/* =====================================
+   8. SEARCH BOX
+===================================== */
+
+.search-box {
+    max-width: 560px;
+
+    margin: 0 auto 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 16px 22px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    transition: border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+.search-box:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px #d4ad6618;
+}
+
+.search-box span {
+    font-size: 23px;
+    color: var(--gold);
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+
+    width: 100%;
+
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #888d83;
+}
+
+/* =====================================
+   9. BOOK GRID
+===================================== */
+
+.book-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* =====================================
+   10. BOOK CARDS
+===================================== */
+
+.book-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    transition: transform var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--gold);
+
+    box-shadow: 0 15px 35px #00000045;
+}
+
+.book-card img {
+    display: block;
+
+    width: 100%;
+    height: 280px;
+
+    object-fit: contain;
+
+    background: #17231a;
+    padding: 18px;
+
+    transition: transform 0.4s ease;
+}
+
+.book-card:hover img {
+    transform: scale(1.04);
+}
+
+/* =====================================
+   11. BOOK INFORMATION
+===================================== */
+
+.book-info {
+    padding: 23px;
+}
+
+.book-category {
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.book-info h3 {
+    font-family: var(--heading-font);
+
+    font-size: 21px;
+    color: var(--text);
+
+    margin: 12px 0 8px;
+}
+
+.book-info p {
+    color: var(--text-muted);
+
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* =====================================
+   12. BORROW BUTTON
+===================================== */
+
+.borrow-btn {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid var(--gold);
+    border-radius: 7px;
+
+    background: var(--gold);
+    color: #171710;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: all var(--transition);
+}
+
+.borrow-btn:hover {
+    background: transparent;
+    color: var(--gold);
+
+    transform: translateY(-2px);
+}
+
+.borrow-btn:disabled {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+
+    color: var(--text);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.borrow-btn.borrowed {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+    color: var(--text);
+}
+
+/* =====================================
+   13. NO RESULTS MESSAGE
+===================================== */
+
+.no-results {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* =====================================
+   14. FOOTER
+===================================== */
+
+footer {
+    background: #0b110d;
+
+    color: var(--text);
+
+    text-align: center;
+    padding: 55px 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+footer h2 {
+    font-family: var(--heading-font);
+
+    color: var(--gold);
+    font-size: 29px;
+
+    margin-bottom: 14px;
+}
+
+footer p {
+    color: var(--text-muted);
+
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* =====================================
+   15. ACCESSIBILITY
+===================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =====================================
+   16. TABLET RESPONSIVENESS
+===================================== */
+
+@media (max-width: 900px) {
+
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .hero {
+        padding: 75px 7%;
+    }
+
+    .navbar {
+        padding: 20px 6%;
+    }
+}
+
+/* =====================================
+   17. MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .hero {
+        min-height: 420px;
+        padding: 65px 7%;
+    }
+
+    .categories,
+    .books-section {
+        padding: 60px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .book-card img {
+        height: 240px;
+    }
+}
+
+/* =====================================
+   18. SMALL MOBILE SCREENS
+===================================== */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .nav-button {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 390px;
+        padding: 55px 6%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .book-card img {
+        height: 270px;
+    }
+
+    .category-btn {
+        padding: 9px 17px;
+        font-size: 12px;
+    }
+
+    .search-box {
+        padding: 13px 15px;
+    }
+}
+
+/* =====================================
+   19. REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
